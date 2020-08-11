@@ -1,0 +1,20 @@
+{
+  "bad_request": {
+    "status": 400,
+    "code": "bad_request",
+    "message": "The client sent a request that this server could not understand.",
+    "severity": "LOW"
+  },
+  "internal_server_error": {
+    "status": 500,
+    "code": "internal_server_error",
+    "message": "Internal server error",
+    "severity": "HIGH"
+  },
+  "forbidden": {
+    "status": 403,
+    "code": "forbidden",
+    "message": "Forbidden",
+    "severity": "MEDIUM"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "validation_size": {
+    "status": 400,
+    "code": "validation_size",
+    "message": "The size is greater than 5mb",
+    "severity": "HIGH"
+  },
+  "insert_image": {
+    "status": 400,
+    "code": "insert_image",
+    "message": "Error insert image in dynamodb",
+    "severity": "HIGH"
+  }
+}
