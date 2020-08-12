@@ -1,0 +1,259 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a simple API",
+    "version" : "1.0.0",
+    "title" : "Simple load-image API",
+    "contact" : {
+      "email" : "you@your-company.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/julianmerlo95/Load-image/1.0.0",
+  "tags" : [ {
+    "name" : "admins",
+    "description" : "Secured Admin-only calls"
+  }, {
+    "name" : "developers",
+    "description" : "Operations available to regular developers"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/api/images" : {
+      "post" : {
+        "tags" : [ "admins" ],
+        "summary" : "adds an inventory item",
+        "description" : "Adds an item to the dynamodb",
+        "operationId" : "addInventory",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "load-image",
+          "description" : "load-image item to add in dynamodb",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/createImage"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "response",
+            "schema" : {
+              "$ref" : "#/definitions/response_create_image"
+            }
+          },
+          "400" : {
+            "description" : "bad_request",
+            "schema" : {
+              "$ref" : "#/definitions/bad_request"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized error",
+            "schema" : {
+              "$ref" : "#/definitions/unauthorized"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden error",
+            "schema" : {
+              "$ref" : "#/definitions/forbidden"
+            }
+          },
+          "409" : {
+            "description" : "Validation Size error",
+            "schema" : {
+              "$ref" : "#/definitions/validation_size"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/internal_server_error"
+            }
+          },
+          "503" : {
+            "description" : "Insert dynamodb error",
+            "schema" : {
+              "$ref" : "#/definitions/insert_image"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "createImage" : {
+      "type" : "object",
+      "required" : [ "path", "size", "type" ],
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "example" : "Captura de pantalla de 2020-02-03 09-17-12.png"
+        },
+        "size" : {
+          "type" : "number",
+          "example" : 123121.0
+        },
+        "type" : {
+          "type" : "string",
+          "example" : "image/png"
+        }
+      }
+    },
+    "bad_request" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "bad_request"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "Request body validation failed"
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "LOW"
+        }
+      }
+    },
+    "unauthorized" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "unauthorized"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "Unauthorized"
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "HIGH"
+        }
+      }
+    },
+    "forbidden" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "forbidden"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "Forbidden."
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "HIGH"
+        }
+      }
+    },
+    "validation_size" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "validation_size"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "The size is greater than 5mb."
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "HIGH"
+        }
+      }
+    },
+    "internal_server_error" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "internal_server_error"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "Internal Server Error"
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "HIGH"
+        }
+      }
+    },
+    "insert_image" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "example" : "insert_image"
+        },
+        "message" : {
+          "type" : "string",
+          "example" : "Error insert image in dynamodb"
+        },
+        "severity" : {
+          "type" : "string",
+          "example" : "HIGH"
+        }
+      }
+    },
+    "response_create_image" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/response_create_image_inner"
+      }
+    },
+    "response_create_image_inner_newImages" : {
+      "type" : "object",
+      "properties" : {
+        "width" : {
+          "type" : "string",
+          "example" : "400"
+        },
+        "height" : {
+          "type" : "string",
+          "example" : "300"
+        }
+      }
+    },
+    "response_create_image_inner" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "example" : "Captura de pantalla de 2020-02-03 09-17-12.png"
+        },
+        "size" : {
+          "type" : "number",
+          "example" : 123121.0
+        },
+        "type" : {
+          "type" : "string",
+          "example" : "image/png"
+        },
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "9b5c874c-42a0-4e39-8ac0-a99e8d6b0116"
+        },
+        "newImages" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/response_create_image_inner_newImages"
+          }
+        }
+      }
+    }
+  }
+}
