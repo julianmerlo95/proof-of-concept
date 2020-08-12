@@ -1,0 +1,5 @@
+- Effect: Allow
+  Action:
+    - dynamodb:GetItem
+  Resource:
+    - { "Fn::GetAtt": ["ImageTable", "Arn"] }
