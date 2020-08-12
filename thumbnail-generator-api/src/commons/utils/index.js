@@ -47,25 +47,25 @@ function errorHandler(error, errorCatalog) {
   return send(errorResponse.status, { code, message, severity });
 }
 
-let images = {
-  image400: {
-    width: "400",
-    height: "300",
+let newImages = [
+  {
+    "width": "400",
+    "height": "300",
   },
-  image160: {
-    width: "160",
-    height: "120",
+  {
+    "width": "160",
+    "height": "120",
   },
-  image120: {
-    width: "120",
-    height: "120",
+  {
+    "width": "120",
+    "height": "120",
   },
-};
+];
 
 module.exports = {
   isLocal,
   send,
   bodyParser,
-  images,
+  newImages,
   errorHandler,
 };
