@@ -23,6 +23,7 @@ const createImageDomain = async (images) => {
         })
       );
     } catch (error) {
+      error.code = "promise_all"
       throw error;
     }
 };
