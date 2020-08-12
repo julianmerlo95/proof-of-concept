@@ -5,6 +5,8 @@ const dynamoDb = require("../../../../commons/aws/dynamoDb/index")(
   "load-image-api-develop-image-table",
   getDynamoInstance()
 );
+const { upload } = require("../../../../commons/utils/multer");
+
 
 const createImageDomain = async (images) => {
  
@@ -16,7 +18,8 @@ const createImageDomain = async (images) => {
   
   try {
     return  await Promise.all(
-        images.arrayImages.map(image =>{
+      images.arrayImages.map(image =>{
+        upload.single('path')
         image.id = uuid();
         image.newImages = arrayNewImages;
         return dynamoDb.putItem(image);
