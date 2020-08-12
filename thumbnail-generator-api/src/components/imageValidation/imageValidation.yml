@@ -7,13 +7,3 @@ createImage:
     - http:
         path: api/images
         method: post
-
-getImage:
-  handler: src/components/imageValidation/handler.getImage
-  description: "Get image in dynamoDb"
-  iamRoleStatementsName: ${self:service}-${self:provider.stage}-get-image
-  iamRoleStatements: ${file(resources/iamRoleStatements/imageValidation/getImage.yml)}
-  events:
-    - http:
-        path: api/images/{image}
-        method: get

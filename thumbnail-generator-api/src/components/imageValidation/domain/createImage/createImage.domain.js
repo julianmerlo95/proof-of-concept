@@ -1,12 +1,13 @@
 const {getDynamoInstance} = require("../../../../commons/aws/dynamoDb/config");
 const { images } = require("../../../../commons/utils/index");
 const dynamoDb = require("../../../../commons/aws/dynamoDb/index")(
-"load-image-api-develop-image-table",
-  getDynamoInstance());
+  process.env.IMAGE_TABLE,
+  getDynamoInstance()
+);
 
 const createImageDomain = async (image) => {
   try {
-    if (image.size > 50000) {
+    if (image.size > 5120) {
       const error = new Error();
       error.code = "validation_size";
       throw error;
