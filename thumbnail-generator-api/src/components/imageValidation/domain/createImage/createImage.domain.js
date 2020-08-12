@@ -1,5 +1,5 @@
 const {getDynamoInstance} = require("../../../../commons/aws/dynamoDb/config");
-const { newImages } = require("../../../../commons/utils/index");
+const { arrayNewImages } = require("../../../../commons/utils/index");
 const { v4: uuid } = require("uuid");
 const dynamoDb = require("../../../../commons/aws/dynamoDb/index")(
   "load-image-api-develop-image-table",
@@ -18,7 +18,7 @@ const createImageDomain = async (images) => {
     return  await Promise.all(
         images.arrayImages.map(image =>{
         image.id = uuid();
-        image.newImages = newImages;
+        image.newImages = arrayNewImages;
         return dynamoDb.putItem(image);
         })
       );

@@ -47,7 +47,7 @@ function errorHandler(error, errorCatalog) {
   return send(errorResponse.status, { code, message, severity });
 }
 
-let newImages = [
+let arrayNewImages = [
   {
     "width": "400",
     "height": "300",
@@ -66,6 +66,6 @@ module.exports = {
   isLocal,
   send,
   bodyParser,
-  newImages,
+  arrayNewImages,
   errorHandler,
 };
