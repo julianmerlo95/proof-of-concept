@@ -16,8 +16,8 @@ provider:
     ## dynamodb
     IMAGE_TABLE: ${self:service}-${self:provider.stage}-image-table
     ## aws credential
-    ACCESS_KEY: AKIATKGSMOIUTWJYEINQ
-    SECRET_KEY: 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
+    ACCESS_KEY: xxxxxxxxxxxxxxxxxxx
+    SECRET_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 custom:
   DEFAULT_STAGE: local
