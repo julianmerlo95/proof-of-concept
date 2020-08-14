@@ -1,0 +1,38 @@
+{
+  "promise_all": {
+    "status": 503,
+    "code": "promise_all",
+    "message": "Error map promise all",
+    "severity": "HIGH"
+  },
+  "insert_image_dynamo": {
+    "status": 503,
+    "code": "insert_image",
+    "message": "Error insert image in dynamodb",
+    "severity": "HIGH"
+  },
+  "insert_image_s3": {
+    "status": 503,
+    "code": "insert_image",
+    "message": "Error insert image in s3",
+    "severity": "HIGH"
+  },
+  "invoke_lambda": {
+    "status": 503,
+    "code": "invoke_lambda",
+    "message": "Error invoke lambda",
+    "severity": "HIGH"
+  },
+  "calback_error": {
+    "status": 503,
+    "code": "calback_error",
+    "message": "Error callback",
+    "severity": "HIGH"
+  },
+  "application_error": {
+    "status": 503,
+    "code": "aplication_error",
+    "message": "Error application",
+    "severity": "HIGH"
+  }
+}

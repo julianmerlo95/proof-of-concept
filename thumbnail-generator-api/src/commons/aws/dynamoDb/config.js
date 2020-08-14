@@ -1,11 +1,11 @@
-const AWS = require('aws-sdk');
-const {isLocal} = require('../../utils');
+const AWS = require("aws-sdk");
+const {isLocal} = require("../../utils");
 
 const dynamoLocal = {
-  region: 'localhost',
-  endpoint: 'http://localhost:8000',
-  accessKeyId: 'DEFAULT_ACCESS_KEY',
-  secretAccessKey: 'DEFAULT_SECRET',
+  region: "localhost",
+  endpoint: "http://localhost:8000",
+  accessKeyId: "DEFAULT_ACCESS_KEY",
+  secretAccessKey: "DEFAULT_SECRET",
 };
 
 function getDynamoInstance() {
@@ -17,4 +17,4 @@ function getDynamoInstance() {
   });
 }
 
-module.exports = {getDynamoInstance};
+module.exports = { getDynamoInstance };

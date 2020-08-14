@@ -2,10 +2,7 @@ const commonErrorCatalog = require("./errors/commons.errors.json");
 
 function isLocal() {
   return (
-    (process.env.IS_LOCAL ||
-      process.env.IS_OFFLINE ||
-      process.env.IS_SANDBOX) &&
-    !process.env.GO_TO_AWS
+    (process.env.IS_LOCAL || process.env.IS_OFFLINE) && !process.env.GO_TO_AWS
   );
 }
 
@@ -49,16 +46,16 @@ function errorHandler(error, errorCatalog) {
 
 let arrayNewImages = [
   {
-    "width": "400",
-    "height": "300",
+    width: "400",
+    height: "300",
   },
   {
-    "width": "160",
-    "height": "120",
+    width: "160",
+    height: "120",
   },
   {
-    "width": "120",
-    "height": "120",
+    width: "120",
+    height: "120",
   },
 ];
 

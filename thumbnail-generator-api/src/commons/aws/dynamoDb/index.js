@@ -9,7 +9,7 @@ module.exports = (tableName, dynamoDB) => ({
       await dynamoDB.put(params).promise();
       return item;
     } catch (error) {
-      error.code = "insert_image";
+      error.code = "insert_image_dynamo";
       throw error;
     }
   },
