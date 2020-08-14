@@ -34,7 +34,7 @@ const createImageDomain = async (images) => {
           .promise();
         const payload = JSON.parse(responseS3.Payload);
         pathS3 = JSON.parse(payload.body);
-        //asign properties
+        //assign properties
         image.id = uuid();
         image.pathS3 = pathS3;
         image.newImages = arrayNewImages;

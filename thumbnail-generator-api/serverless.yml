@@ -20,8 +20,8 @@ provider:
     LAMBDA_S3: ${self:service}juli-${self:provider.stage}-insertImageS3
     BUCKET: load-image-bucket-s3
     ## aws credential
-    ACCESS_KEY: AKIATKGSMOIU6VG6F7GB
-    SECRET_KEY: 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
+    ACCESS_KEY: xxxxxxxxxxxxxxxxxxx
+    SECRET_KEY: xxxxxxxxxxxxxxxxxxxxxxxx
 
 custom:
   ## s3
