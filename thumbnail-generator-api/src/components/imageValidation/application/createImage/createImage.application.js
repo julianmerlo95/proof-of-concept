@@ -3,10 +3,13 @@ const {bodyParser, send, errorHandler} = require("../../../../commons/utils/inde
 const errorApi = require("../../../../commons/utils/errors/api.errors.json");
 const {schemaValidation} = require("./validationCreateImage");
 const Joi = require("@hapi/joi");
+const { logger } = require("../../../../commons/logger/index");
+
 
 const createImage = async (event, context) => {
   try {
     const body = bodyParser(event);
+    logger.info({body});
     try {
       Joi.assert(body, schemaValidation);
     } catch (error) {
@@ -16,10 +19,14 @@ const createImage = async (event, context) => {
         severity: "LOW",
       });
     }
-    //Request
     const response = await createImageDomain(body);
+    //Response
     return send(200, response);
   } catch (error) {
+    logger.error({
+      error,
+      message: `createImage_application ${error.message}`,
+    });
     return errorHandler(error, errorApi);
   }
 };
