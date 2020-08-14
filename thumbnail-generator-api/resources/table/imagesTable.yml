@@ -1,5 +1,5 @@
 Resources:
-  ImageTable:
+  ImagesTable:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: ${self:service}-${self:provider.stage}-image-table

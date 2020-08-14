@@ -2,4 +2,15 @@
   Action:
     - dynamodb:PutItem
   Resource:
-    - { "Fn::GetAtt": ["ImageTable", "Arn"] }
+    - { "Fn::GetAtt": ["ImagesTable", "Arn"] }
+- Effect: Allow
+  Action:
+    - lambda:InvokeFunction
+    - lambda:InvokeAsync
+  Resource:
+    - Fn::GetAtt: [InsertImageS3LambdaFunction, Arn]
+- Effect: "Allow"
+  Action:
+    - s3:PutObject
+    - s3:PutObjectAcl
+  Resource: "arn:aws:s3:::${self:custom.s3.bucket}/*"
