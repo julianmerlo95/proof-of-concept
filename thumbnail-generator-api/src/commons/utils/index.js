@@ -46,16 +46,19 @@ function errorHandler(error, errorCatalog) {
 
 let arrayNewImages = [
   {
-    width: "400",
-    height: "300",
+    name: "Image 400 x 300",
+    width: "400px",
+    height: "300px",
   },
   {
-    width: "160",
-    height: "120",
+    name: "Image 160 x 120",
+    width: "160px",
+    height: "120px",
   },
   {
-    width: "120",
-    height: "120",
+    name: "Image 120 x 120",
+    width: "120px",
+    height: "120px",
   },
 ];
 
