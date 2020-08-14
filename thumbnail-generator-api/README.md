@@ -1,11 +1,11 @@
 # PoC: Thumbnail Generator API
 # User Manual
-Step 1: When we clone the repository, we must install the project dependencies with `npm install or npm i` in the root of the folder thumbnail-generator-api. 
+**Step 1:** When we clone the repository, we must install the project dependencies with `npm install or npm i` in the root of the folder **thumbnail-generator-api**. 
 
-Step 2: Once the dependencies are installed, we can run `sls dynamodb install` to install dynamodb local. 
+**Step 2:**  Once the dependencies are installed, we can run `sls dynamodb install` to install dynamodb local. 
 affter we can run `npm run start or npm start`
 
-Step 3:The command `npm run start or npm start` start the dynamodb and server thanks to a scripts in ./scripts/index.
+**Step 3:**  The command `npm run start or npm start` start the dynamodb and server thanks to a scripts in ./scripts/index.
 
 
 ## Ports
