@@ -2,7 +2,6 @@ service: load-image-api${opt:developerStack,''}
 
 plugins:
   - serverless-offline
-  - serverless-s3-local
   - serverless-dynamodb-local
   
 provider:
@@ -16,19 +15,11 @@ provider:
     REGION: ${self:provider.region}
     ## dynamodb
     IMAGE_TABLE: ${self:service}-${self:provider.stage}-image-table
-    ## s3
-    LAMBDA_S3: ${self:service}juli-${self:provider.stage}-insertImageS3
-    BUCKET: load-image-bucket-s3
     ## aws credential
-    ACCESS_KEY: xxxxxxxxxxxxxxxxxxx
-    SECRET_KEY: xxxxxxxxxxxxxxxxxxxxxxxx
+    ACCESS_KEY: AKIATKGSMOIUTWJYEINQ
+    SECRET_KEY: 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
 
 custom:
-  ## s3
-  s3:
-    port: 9000
-    directory: ./s3/local
-    bucket: load-image-bucket-s3
   DEFAULT_STAGE: local
   ## serverless
   serverless-offline:
@@ -41,7 +32,6 @@ custom:
       port: 8000
       inMemory: true
       heapInitial: 200m
-      heapMax: 1g
       migrate: true
       seed: true
       convertEmptyValues: true
