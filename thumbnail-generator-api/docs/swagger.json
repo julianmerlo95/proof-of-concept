@@ -90,20 +90,19 @@
   "definitions" : {
     "createImage" : {
       "type" : "object",
-      "required" : [ "path", "size", "type" ],
       "properties" : {
-        "path" : {
-          "type" : "string",
-          "example" : "Captura de pantalla de 2020-02-03 09-17-12.png"
-        },
-        "size" : {
-          "type" : "number",
-          "example" : 123121.0
-        },
-        "type" : {
-          "type" : "string",
-          "example" : "image/png"
+        "arrayImages" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/createImage_arrayImages"
+          }
         }
+      }
+    },
+    "response_create_image" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/response_create_image_inner"
       }
     },
     "bad_request" : {
@@ -208,10 +207,69 @@
         }
       }
     },
-    "response_create_image" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/response_create_image_inner"
+    "createImage_userData" : {
+      "type" : "object",
+      "properties" : {
+        "given_name" : {
+          "type" : "string",
+          "example" : "Julian"
+        },
+        "family_name" : {
+          "type" : "string",
+          "example" : "Merlo"
+        },
+        "nickname" : {
+          "type" : "string",
+          "example" : "julimerlo95"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Julian Merlo"
+        },
+        "picture" : {
+          "type" : "string",
+          "example" : "https://lh3.googleusercontent.com/a-/AFHFxrFK2bA2K4SBP-s0JYxA7-g"
+        },
+        "locale" : {
+          "type" : "string",
+          "example" : "es-419sdf"
+        },
+        "updated_at" : {
+          "type" : "string",
+          "example" : "2020-08-14T12:20:02.715Z"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "julime@gmail.com"
+        },
+        "email_verified" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "sub" : {
+          "type" : "string",
+          "example" : "google-oauth|20000695058328333"
+        }
+      }
+    },
+    "createImage_arrayImages" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "example" : "Captura de pantalla de 2020-02-03 09-17-12.png"
+        },
+        "size" : {
+          "type" : "number",
+          "example" : 123121.0
+        },
+        "type" : {
+          "type" : "string",
+          "example" : "image/png"
+        },
+        "userData" : {
+          "$ref" : "#/definitions/createImage_userData"
+        }
       }
     },
     "response_create_image_inner_newImages" : {
@@ -246,6 +304,10 @@
           "type" : "string",
           "format" : "uuid",
           "example" : "9b5c874c-42a0-4e39-8ac0-a99e8d6b0116"
+        },
+        "pathS3" : {
+          "type" : "string",
+          "example" : "https://example.s3.amazonaws.com/Capturaa+de+2020-01-31+16-57-01.png"
         },
         "newImages" : {
           "type" : "array",
