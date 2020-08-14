@@ -15,8 +15,8 @@ function LoadImage() {
   const dispatch = useDispatch();
 
   //Drag image or select image
-  const onDrop = useCallback(async (file) => {
-    const valueImage = await previewImage(file);
+  const onDrop = useCallback( (file) => {
+    const valueImage = previewImage(file);
     if (valueImage)
       setValueImageLoad((arrayImage) => [...arrayImage, valueImage]);
   }, []);
