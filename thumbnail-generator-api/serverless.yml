@@ -2,24 +2,38 @@ service: load-image-api${opt:developerStack,''}
 
 plugins:
   - serverless-offline
+  - serverless-s3-local
   - serverless-dynamodb-local
-
+  
 provider:
   name: aws
   runtime: nodejs12.x
   region: ${opt:region,'us-east-1'}
-  stage: ${opt:stage,'develop'}
-environment:
-  ENV: ${self:provider.stage}
-  SERVICE: ${self:service}
-  REGION: ${self:provider.region}
-  IMAGE_TABLE: ${self:service}-${self:provider.stage}-image-table
+  stage: ${opt:stage, 'develop'}
+  environment:
+    ENV: ${self:provider.stage}
+    SERVICE: ${self:service}
+    REGION: ${self:provider.region}
+    ## dynamodb
+    IMAGE_TABLE: ${self:service}-${self:provider.stage}-image-table
+    ## s3
+    LAMBDA_S3: ${self:service}juli-${self:provider.stage}-insertImageS3
+    BUCKET: load-image-bucket-s3
+    ## aws credential
+    ACCESS_KEY: AKIATKGSMOIU6VG6F7GB
+    SECRET_KEY: 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
 
 custom:
+  ## s3
+  s3:
+    port: 9000
+    directory: ./s3/local
+    bucket: load-image-bucket-s3
   DEFAULT_STAGE: local
-  ### Uso local de la dynamo
+  ## serverless
   serverless-offline:
     httpPort: 9090
+  ## dynamo
   dynamodb:
     stages:
       - develop
@@ -33,8 +47,10 @@ custom:
       convertEmptyValues: true
 
 functions:
+  ## image validation
   - ${file(src/components/imageValidation/imageValidation.yml)}
 
 resources:
-  # Dynamodb table
-  - ${file(resources/table/tableImages.yml)}
+  ## dynamodb table
+  - ${file(resources/table/imagesTable.yml)}
+
