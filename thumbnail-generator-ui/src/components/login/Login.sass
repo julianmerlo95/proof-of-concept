@@ -1,0 +1,45 @@
+.login
+  background: rgb(79,180,128)
+  background: linear-gradient(191deg, rgba(79,180,128,1) 17%, rgba(237,80,46,1) 33%, rgba(22,34,67,1) 54%)
+  width: 100%
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  text-align: center
+
+  &__container
+    width: 55%
+    padding: 10px
+    margin: 0 auto
+    border: 2px solid white
+    border-radius: 5px
+    color: white
+    font-size: 26px
+    box-shadow: 1px -1px 10px 1px black
+
+    &__image
+      width: 30%
+
+    &__span
+      color: #e7512f
+
+@media screen and ( max-width: 768px )
+
+  .login__container
+    width: 75%
+
+    &__image
+      width: 60%
+
+@media screen and ( max-width: 425px )
+
+  .login__container
+    width: 75%
+
+    &__image
+      width: 80%
+    
+    &__text
+      color: white
+      font-size: 18px

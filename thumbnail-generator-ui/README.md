@@ -1,35 +1,31 @@
 # PoC: Thumbnail Generator UI
 
-## Goal
-Build a simple UI for a thumbnail generator.
+# User Manual
 
-## Requirements
-- The UI let's you upload files through AJAX
-- You should mock the required endpoints (or solve and integrate with: `thumbnail-generator-api`)
-- It should preview the image that is going to be processed
-- It should give the users the urls of the new thumbnails and preview them
+When we clone the repository, we must install the project dependencies with `npm install or npm i` in the root of the folder **thumbnail-generator-ui**.
+Once the dependencies are installed, we can run `npm run start or npm start` in the root of the folder **thumbnail-generator-ui**.
 
-## Grading Guidelines
+## Estructure of the proyect
 
-### MVP (40 points)
-- Every requirement is met
-- The solution runs on our enviroment
-- Tech Stack: **Angular v6** or **React v16**
-- Any ENV specific value should be configurable and documented
-- Everything should work after following a simple README (ideally: npm install; npm start)
-- The code should be clear and easy to read / debug
-- It's responsive and works well with phones and tablets
+    - src/
+    - ---assets
+    - ---components
+    - -------------loadImage
+    - ---------------------header
+    - ---------------------navbar
+    - ---------------------sendImage
+    - -------------loading
+    - -------------login
+    - ---layout
+    - ---redux
+    - -------actions
+    - -------reducer
+    - ---utils
+    - ---test
 
-### Nice moves (5 points each)
-- It leverages some design framework (Material UI / Ant / Blueprint)
-- It includes transitions, loaders, progress status
-- It includes drag-and-drop functionality + visual cues to help the user
-- It's Dockerized for local development / testing
-- It includes some kind of testing (unit tests, integration tests, etc) with at least 70% coverage
-- Includes a simple login (recommended: Auth0)
+## Environment Variables
 
-### Wait, WHAT?! (10 points each)
-- It works also with the device camera
-- It include a croping area / resize helper
-- It uses Redux extensively
-
+- REACT_APP_DOMAIN
+- REACT_APP_CLIENTID
+- PORT
+- REACT_APP_URL_API

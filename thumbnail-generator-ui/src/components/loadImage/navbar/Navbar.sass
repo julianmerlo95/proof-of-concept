@@ -1,0 +1,26 @@
+.navbar
+  display: flex
+  width: 100%
+  background: #162243
+  justify-content: space-between
+  height: 80px
+
+  &__image--image
+    width: 100px
+    height: 79px
+
+  &__title--title
+    color: white  
+  
+  .navbar__icon
+    display: flex
+    
+    & svg
+      cursor: pointer
+      margin-left: 10px
+  
+
+
+@media screen and ( max-width: 425px )
+  .navbar__title--title
+    display: none
