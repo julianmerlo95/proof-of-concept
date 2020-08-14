@@ -31,14 +31,18 @@ function executeCommand(options) {
 
 function start() {
   checkDynamo();
-  executeCommand({
-    command: "sls dynamodb start",
-    name: "dynamodb start",
-  });
-  executeCommand({
-    command: "sls offline",
-    name: "sls-offline",
-  });
+    setTimeout(() => {
+        executeCommand({
+          command: "sls dynamodb start",
+          name: "dynamodb start",
+        });
+        executeCommand({
+          command: "sls offline",
+          name: "sls-offline",
+        });
+      return;
+    }, 15000);
+
 }
 
 start();
