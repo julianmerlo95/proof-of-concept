@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "This is a simple API",
-    "version" : "1.0.0",
+    "version" : "1.1.0",
     "title" : "Simple load-image API",
     "contact" : {
       "email" : "you@your-company.com"
@@ -275,13 +275,17 @@
     "response_create_image_inner_newImages" : {
       "type" : "object",
       "properties" : {
+        "name" : {
+          "type" : "string",
+          "example" : "Image 400px"
+        },
         "width" : {
           "type" : "string",
-          "example" : "400"
+          "example" : "400px"
         },
         "height" : {
           "type" : "string",
-          "example" : "300"
+          "example" : "300px"
         }
       }
     },
@@ -304,10 +308,6 @@
           "type" : "string",
           "format" : "uuid",
           "example" : "9b5c874c-42a0-4e39-8ac0-a99e8d6b0116"
-        },
-        "pathS3" : {
-          "type" : "string",
-          "example" : "https://example.s3.amazonaws.com/Capturaa+de+2020-01-31+16-57-01.png"
         },
         "newImages" : {
           "type" : "array",
