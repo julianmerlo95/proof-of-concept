@@ -1,4 +1,3 @@
-const npm = require("npm");
 const concurrently = require("concurrently");
 const fs = require("fs");
 const path = require("path");
