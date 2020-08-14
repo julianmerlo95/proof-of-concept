@@ -15,9 +15,6 @@ provider:
     REGION: ${self:provider.region}
     ## dynamodb
     IMAGE_TABLE: ${self:service}-${self:provider.stage}-image-table
-    ## aws credential
-    ACCESS_KEY: xxxxxxxxxxxxxxxxxxx
-    SECRET_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 custom:
   DEFAULT_STAGE: local
