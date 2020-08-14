@@ -1,9 +1,26 @@
 createImage:
   handler: src/components/imageValidation/handler.createImage
   description: "insert images in dynamoDb"
-  iamRoleStatementsName: ${self:service}-${self:provider.stage}-insert-image
+  lambdaIAMRole: arn:aws:iam::228074484265:role/load-image-api-develop-us-east-1-lambdaRole
+  iamRoleStatementsName: ${self:service}-${self:provider.stage}-create-image
   iamRoleStatements: ${file(resources/iamRoleStatements/imageValidation/createImage.yml)}
   events:
     - http:
         path: api/images
         method: post
+
+insertImageS3:
+  handler: src/components/imageValidation/handler.insertImageS3
+  description: "insert images in s3"
+  iamRoleStatementsName: ${self:service}-${self:provider.stage}-insert-image-s3
+  iamRoleStatements: ${file(resources/iamRoleStatements/imageValidation/createImage.yml)}
+    
+eventResponseS3:
+  handler: src/components/imageValidation/handler.s3EventResponse
+  description: "handler events s3"
+  events:
+    - s3:
+        bucket: ${self:provider.environment.BUCKET}
+        events:
+          - s3:ObjectCreated:Put
+        existing: true

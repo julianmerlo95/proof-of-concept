@@ -1,7 +1,7 @@
-const {createImageDomain,} = require("../../domain/createImage/createImage.domain");
+const {createImageDomain} = require("../../domain/createImage/createImage.domain");
 const {bodyParser, send, errorHandler} = require("../../../../commons/utils/index");
-const errorUi = require("../../../../commons/utils/errors/ui.errors.json");
-const { schemaValidation } = require("./validationCreateImage");
+const errorApi = require("../../../../commons/utils/errors/api.errors.json");
+const {schemaValidation} = require("./validationCreateImage");
 const Joi = require("@hapi/joi");
 
 const createImage = async (event, context) => {
@@ -20,7 +20,7 @@ const createImage = async (event, context) => {
     const response = await createImageDomain(body);
     return send(200, response);
   } catch (error) {
-    return errorHandler(error, errorUi);
+    return errorHandler(error, errorApi);
   }
 };
 
