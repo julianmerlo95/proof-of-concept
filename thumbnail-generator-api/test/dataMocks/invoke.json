@@ -1,0 +1,5 @@
+//sls invoke local -f insertImageS3 --path test/dataMocks/invoke.json --stage develop --developerStack --aws-profile your user
+{
+  "url": "Captura de pantalla de 2020-08-03 20-12-32.png",
+  "body": "Captura de pantalla de 2020-08-03 20-12-32.png"
+}
